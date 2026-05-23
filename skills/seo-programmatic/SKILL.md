@@ -1,11 +1,15 @@
 ---
 name: seo-programmatic
 description: >
-  Programmatic SEO planning and analysis for pages generated at scale from data
-  sources. Covers template engines, URL patterns, internal linking automation,
-  thin content safeguards, and index bloat prevention. Use when user says
-  "programmatic SEO", "pages at scale", "dynamic pages", "template pages",
-  "generated pages", or "data-driven SEO".
+  Programmatic SEO planning, analysis, and implementation for pages generated
+  at scale from data sources. Covers template engines (Nunjucks-style syntax,
+  layout inheritance), URL pattern strategy and slug generation, internal
+  linking automation, thin content safeguards, batch processing with
+  checkpoint/resume, parallel worker pools, per-batch quality validation,
+  storage strategy (FS vs DB), CDN deployment, and index bloat prevention.
+  Use when user says "programmatic SEO", "pSEO", "pages at scale", "dynamic
+  pages", "template pages", "generated pages", "data-driven SEO", "URL
+  structure", "slug generation", "batch generate", or "scale 100k pages".
 user-invokable: true
 argument-hint: "[url or plan]"
 license: MIT
@@ -176,3 +180,11 @@ Measure against all other pages in the programmatic set. Shared headers, footers
 | No programmatic pages detected | Inform user that no template-generated or data-driven page patterns were found. Suggest checking if pages use client-side rendering or if the URL points to the correct section. |
 | Thin content threshold exceeded | Trigger quality gate warning. Report the unique content percentage and flag pages below 40% uniqueness. Require user acknowledgment before proceeding. |
 | Quality gate violation | Halt analysis at the HARD STOP threshold (500+ pages without justification or <30% unique content). Present findings and require explicit user approval to continue. |
+
+## Reference Files
+
+Load on demand (do NOT load at startup):
+
+- `references/pseo-best-practices.md` -- Content uniqueness strategies, thin-content red flags + fixes, keyword density rules, doorway vs value-add comparison, pre-launch checklist, JS quality validator, batch sampling for human review, post-launch KPIs.
+- `references/pseo-templates-and-urls.md` -- Nunjucks template syntax (variables, loops, conditionals, filters, layout inheritance, full location/comparison templates) plus URL patterns by use case, slug sanitizer, `PSEOURLGenerator` class with length cap + dedup, canonical maps, hierarchy/matrix examples.
+- `references/pseo-scale-architecture.md` -- Pipeline overview, 1000-row batch processing, 4-8 worker pool, checkpoint/resume manager, per-batch quality validator with 10% failure abort, performance benchmarks (1k → 1M+ pages), file-system vs SQLite storage, CDN cache headers, end-to-end pipeline sketch.

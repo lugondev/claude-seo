@@ -1,9 +1,12 @@
 ---
 name: seo-content
 description: >
-  Content quality and E-E-A-T analysis with AI citation readiness assessment.
-  Use when user says "content quality", "E-E-A-T", "content analysis",
-  "readability check", "thin content", or "content audit".
+  Content quality and E-E-A-T analysis with AI citation readiness assessment,
+  including semantic SEO (entity optimization, topical authority hub-spoke,
+  semantic/LSI variations, NLP-friendly structure). Use when user says
+  "content quality", "E-E-A-T", "content analysis", "readability check",
+  "thin content", "content audit", "semantic SEO", "topical authority",
+  "entity optimization", "LSI keywords", or "topic cluster content".
 user-invokable: true
 argument-hint: "[url]"
 license: MIT
@@ -178,3 +181,12 @@ If DataForSEO MCP tools are available, use `kw_data_google_ads_search_volume` fo
 ## FLOW Framework Integration
 
 For prompt-guided content optimization, use `/seo flow optimize <url>` and `/seo flow win <url>` — FLOW's optimize and win prompts provide structured E-E-A-T improvement and BOFU conversion workflows.
+
+## Reference Files
+
+Load on demand (do NOT load at startup):
+
+- `skills/seo/references/eeat-framework.md` -- Full E-E-A-T evaluation criteria (Sept 2025 QRG update). Shared reference.
+- `references/semantic-seo.md` -- Entity optimization, topical authority hub-spoke model, semantic variations (so-called LSI), NLP-friendly content structure, priority schema types, full audit workflow with before/after example.
+- `skills/seo-geo/references/eeat-scoring-rubric.md` -- 100-point E-E-A-T rubric with YMYL × schema interaction (cross-referenced from `seo-geo`).
+- `skills/seo-geo/references/citability-rubric.md` -- 5-dimension passage scoring for AI citation readiness (use when assessing GEO signals within content audit).
