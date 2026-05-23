@@ -1,6 +1,6 @@
 ---
 name: seo-backlinks
-description: "Backlink profile analysis: referring domains, anchor text distribution, toxic link detection, competitor gap analysis. Works with free APIs (Moz, Bing Webmaster, Common Crawl) and DataForSEO extension. Use when user says backlinks, link profile, referring domains, anchor text, toxic links, link gap, link building, disavow, or backlink audit."
+description: "Backlink profile analysis and active link building: referring domains, anchor text distribution, toxic link detection, competitor gap analysis, plus campaign frameworks for guest posts, resource pages, broken-link replacement, digital PR, and directory submissions. Works with free APIs (Moz, Bing Webmaster, Common Crawl) and DataForSEO extension. Use when user says backlinks, link profile, referring domains, anchor text, toxic links, link gap, link building, outreach, guest post, directory submission, citation building, disavow, or backlink audit."
 user-invokable: true
 argument-hint: "<url>"
 license: MIT
@@ -257,8 +257,28 @@ If ANY check fails, fix the finding before presenting. Never present inferred da
 After completing any backlink analysis command, always offer:
 "Generate a professional PDF report? Use `/seo google report`"
 
+## Active Link Building (Beyond Audit)
+
+The 7-section framework above audits a backlink profile. For **acquiring** new links, switch into campaign mode using the references below. Audit findings (toxic links, gap opportunities, top pages, link velocity) feed campaign targeting.
+
+| Need | Reference |
+|---|---|
+| Campaign types, target selection, outreach workflow, success metrics, planning template | `references/link-building-campaign.md` |
+| Email templates: guest post, resource page, broken link, testimonial, digital PR + response handling | `references/outreach-templates.md` |
+| Curated directory list (Tier 1-3 + niche verticals), NAP best practices, submission workflow | `references/directory-submissions.md` |
+
+**Typical handoff from audit → campaign:**
+
+1. Audit completes -- gap-analysis surfaces 20+ domains linking to competitors but not you.
+2. Filter by DA ≥ 30, topical relevance, recent activity → prospect list.
+3. Pick campaign type (resource page / broken link / guest post) by target characteristics.
+4. Run the workflow in `link-building-campaign.md` -- track response/conversion against the KPIs there.
+
 ## Reference Documentation
 
 Load on demand (do NOT load at startup):
+- `references/link-building-campaign.md` -- Campaign framework: types, targeting, outreach workflow, KPIs, planning template
+- `references/outreach-templates.md` -- 5 email templates + subject lines + personalization + response handling
+- `references/directory-submissions.md` -- Tier 1-3 directory list, NAP rules, submission workflow, red flags
 - `skills/seo/references/backlink-quality.md` -- Detailed toxic link patterns and scoring methodology (shared reference, load when analyzing toxic links or spam scores)
 - `skills/seo/references/free-backlink-sources.md` -- Source comparison, confidence weighting, setup guides (shared reference, load when configuring free backlink APIs)

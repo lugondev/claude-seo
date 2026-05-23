@@ -4,10 +4,13 @@ description: >
   Optimize content for AI Overviews (formerly SGE), ChatGPT web search,
   Perplexity, and other AI-powered search experiences. Generative Engine
   Optimization (GEO) analysis including brand mention signals, AI crawler
-  accessibility, llms.txt compliance, passage-level citability scoring, and
-  platform-specific optimization. Use when user says "AI Overviews", "SGE",
-  "GEO", "AI search", "LLM optimization", "Perplexity", "AI citations",
-  "ChatGPT search", or "AI visibility".
+  accessibility, llms.txt compliance, passage-level citability scoring,
+  platform-specific optimization, WCS (Weighted Citation Share) baseline
+  audits via reproducible prompt clusters, and CSR (Citation Survival Rate)
+  pipeline diagnosis. Use when user says "AI Overviews", "SGE", "GEO",
+  "AI search", "LLM optimization", "Perplexity", "AI citations",
+  "ChatGPT search", "AI visibility", "citation share", "baseline prompts",
+  or "AI citation audit".
 user-invokable: true
 argument-hint: "[url]"
 license: MIT
@@ -43,6 +46,53 @@ metadata:
 | Domain Rating (backlinks) | ~0.266 (weak) |
 
 **Only 11% of domains** are cited by both ChatGPT and Google AI Overviews for the same query, so platform-specific optimization is essential.
+
+---
+
+## Operational Methodology
+
+### North-star KPI: Weighted Citation Share (WCS)
+
+```
+WCS = Σ(citation_presence × intent_weight × engine_weight × quality_weight)
+```
+
+WCS measures citation *output*. Pair with **Citation Survival Rate (CSR)** -- a 4-stage pipeline (Retrieved → Selected → Cited → Visited) that diagnoses *where* visibility is lost.
+
+Full formula, intent/engine/quality weights, and CSR levers: `references/wcs-csr-methodology.md`.
+
+### Baseline Guard (Hard Rule)
+
+- **Never recommend content changes without a recorded WCS baseline.** Use `scripts/prompt_cluster_generator.py --topic <T> --count 30 --seed <N>` to build a reproducible prompt set, run the baseline citation audit, then store as a dated CSV.
+- Keep the same prompt set across one experiment cycle.
+
+### Decay Warning
+
+GEO gains decay **~30% over 6 months** as competitors optimize and models retrain. Refresh quarterly. Diversify traffic sources -- don't bet everything on AI citation.
+
+### Query-Type Segmentation
+
+AI Overviews primarily affect **informational** queries. Always segment before audit:
+
+| Query type | AIO impact | Audit priority |
+|---|---|---|
+| Informational | High (60-90%) | Primary |
+| Comparison | Medium-High | High |
+| Transactional | Low (<25%) | Lower |
+| Navigational | Minimal | Skip |
+
+If >70% of traffic is transactional, AIO impact is smaller than feared -- focus on informational clusters.
+
+### Scope Limits
+
+- Max **50 pages** per full site audit (`references/wcs-csr-methodology.md` quality gates)
+- Max **30s timeout** per page fetch, max 5 concurrent requests, 1s delay between sequential
+- Max **8 web fetches** for brand-presence checks (run in parallel)
+- Max **5 web searches** for competitor analysis
+
+### JS-Heavy Site Fallback
+
+If initial fetch returns sparse/empty content (SPA, hydrated app), fall back to browser-based rendering before scoring schema, meta, canonical, and headings -- otherwise you'll false-negative everything.
 
 ---
 
@@ -253,3 +303,22 @@ If DataForSEO MCP tools are available, use `ai_optimization_chat_gpt_scraper` to
 ## FLOW Framework Integration
 
 For prompt-guided AI content optimization, use `/seo flow optimize <url>` — FLOW's 21 optimize-stage prompts complement GEO's citability and structure analysis with evidence-led AI prompts.
+
+## Helper Scripts
+
+| Script | Purpose |
+|---|---|
+| `scripts/geo_checker.py <project_path>` | Scan local HTML/JSX/TSX files for 10 GEO signals; emits per-file score + JSON summary. Offline, no URL fetch. |
+| `scripts/llms_txt_generator.py --sitemap <url> --site <url>` | Build llms.txt from a sitemap (handles sitemapindex recursion). URL-validated for SSRF. |
+| `scripts/prompt_cluster_generator.py --topic <T> --count <N> [--brand <B>] [--seed <N>]` | Generate 32 (or 64 with `--brand`) intent-tagged prompts for WCS baseline audits. Seed-locked for reproducibility. |
+
+## Reference Files
+
+Load on demand (do NOT load at startup):
+
+- `references/wcs-csr-methodology.md` -- WCS formula, CSR pipeline, query segmentation, scope limits, decay rules
+- `references/citability-rubric.md` -- 5-dimension passage scoring (Answer Block 30% / Self-Containment 25% / Structural 20% / Statistical 15% / Uniqueness 10%) + grade scale
+- `references/brand-authority.md` -- Ahrefs correlation table, 14 AI crawler UA audit procedure, sentiment audit
+- `references/platform-rubrics.md` -- 100-point rubrics per platform (Google AIO, ChatGPT, Perplexity, Gemini, Copilot)
+- `references/eeat-scoring-rubric.md` -- 100-point E-E-A-T scoring with YMYL × schema interaction
+- `references/entity-modeling.md` -- Entity Authority Score (0-100), schema patterns, `sameAs` priority, audit steps
