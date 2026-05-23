@@ -13,7 +13,6 @@ argument-hint: "<seed-keyword or url>"
 license: MIT
 metadata:
   author: AgriciDaniel
-  original_author: "Lutfiya Miller (Pro Hub Challenge Winner)"
   version: "1.9.9"
   category: seo
 ---

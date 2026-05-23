@@ -13,7 +13,6 @@ license: MIT
 compatibility: "Enhanced with DataForSEO Merchant API (optional)"
 metadata:
   author: AgriciDaniel
-  original_author: "Matej Marjanovic (Pro Hub Challenge)"
   version: "1.9.9"
   category: seo
 ---

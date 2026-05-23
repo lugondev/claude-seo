@@ -121,6 +121,4 @@ extensions/                # Optional add-ons (DataForSEO, Firecrawl, Banana, AS
 
 ## Credits
 
-Created by [@AgriciDaniel](https://github.com/AgriciDaniel).
-v1.9.0 community contributions by Lutfiya Miller, Chris Muller, Florian Schmitz,
-Dan Colta, and Matej Marjanovic. See [CONTRIBUTORS.md](CONTRIBUTORS.md).
+See [CONTRIBUTORS.md](CONTRIBUTORS.md) for authorship and community contributions.

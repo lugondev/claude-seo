@@ -20,7 +20,6 @@ Usage:
     python dataforseo_costs.py config [--mode always|threshold|none] [--threshold AMOUNT] [--daily-limit AMOUNT]
     python dataforseo_costs.py reset
 
-Original concept: Matej Marjanovic (Pro Hub Challenge)
 Security fixes: config path corrected to ~/.config/claude-seo/
 """
 

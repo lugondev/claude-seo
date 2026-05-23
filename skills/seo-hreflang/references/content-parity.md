@@ -3,8 +3,6 @@
 Load this reference when auditing content parity across language versions of a site.
 Content parity ensures all language versions provide equivalent value and SEO signals.
 
-Original concept: Chris Muller (Pro Hub Challenge)
-
 ## Content Parity Matrix
 
 For each page that exists in multiple languages, check:

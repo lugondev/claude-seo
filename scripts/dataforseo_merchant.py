@@ -12,8 +12,6 @@ Usage:
 
 Environment: DATAFORSEO_USERNAME, DATAFORSEO_PASSWORD
 Output: JSON with normalized product data.
-
-Original concept: Matej Marjanovic (Pro Hub Challenge)
 """
 
 import argparse

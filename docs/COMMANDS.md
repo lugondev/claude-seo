@@ -322,7 +322,7 @@ Backlink profile analysis with a 3-tier data cascade: free (Common Crawl + verif
 
 ### `/seo cluster <seed-keyword>`
 
-SERP-based semantic topic clustering for content architecture planning. Built on the Pro Hub Challenge Semantic Cluster Engine.
+SERP-based semantic topic clustering for content architecture planning.
 
 **Example:**
 ```

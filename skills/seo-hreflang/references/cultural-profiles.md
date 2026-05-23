@@ -3,8 +3,6 @@
 Load this reference when analyzing multi-language sites or generating hreflang
 implementations. Profiles guide cultural assessment beyond technical validation.
 
-Original concept: Chris Muller (Pro Hub Challenge)
-
 ## DACH Region (DE, AT, CH)
 
 | Dimension | Guideline |
