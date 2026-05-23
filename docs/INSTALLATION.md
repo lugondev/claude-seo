@@ -11,26 +11,17 @@ Optional:
 
 ## Quick Install
 
-### Plugin Install (Claude Code 1.0.33+)
-
-The recommended path. Inside Claude Code:
-
-```
-/plugin marketplace add AgriciDaniel/claude-seo
-/plugin install claude-seo@agricidaniel-seo
-```
-
 ### Manual Install (Unix, macOS, Linux)
 
 ```bash
-git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git
+git clone --depth 1 https://github.com/lugondev/claude-seo.git
 bash claude-seo/install.sh
 ```
 
 Review-then-run alternative:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/install.sh > install.sh
+curl -fsSL https://raw.githubusercontent.com/lugondev/claude-seo/main/install.sh > install.sh
 cat install.sh        # review
 bash install.sh       # run when satisfied
 rm install.sh
@@ -39,7 +30,7 @@ rm install.sh
 ### Manual Install (Windows, PowerShell)
 
 ```powershell
-git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git
+git clone --depth 1 https://github.com/lugondev/claude-seo.git
 powershell -ExecutionPolicy Bypass -File claude-seo\install.ps1
 ```
 
@@ -50,7 +41,7 @@ The Windows path uses `git clone` rather than `irm | iex` because Claude Code's 
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/AgriciDaniel/claude-seo.git
+git clone https://github.com/lugondev/claude-seo.git
 cd claude-seo
 ```
 
@@ -109,17 +100,10 @@ You should see a help message or prompt for a URL.
 
 ## Uninstallation
 
-If installed as a plugin:
-
-```
-/plugin uninstall claude-seo@agricidaniel-seo
-/plugin marketplace remove AgriciDaniel/claude-seo
-```
-
-If installed manually, run the uninstaller from a fresh clone:
+Run the uninstaller from a fresh clone:
 
 ```bash
-git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git
+git clone --depth 1 https://github.com/lugondev/claude-seo.git
 bash claude-seo/uninstall.sh
 ```
 
@@ -131,10 +115,10 @@ To upgrade to the latest version:
 
 ```bash
 # Uninstall current version
-curl -fsSL https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/uninstall.sh | bash
+curl -fsSL https://raw.githubusercontent.com/lugondev/claude-seo/main/uninstall.sh | bash
 
 # Install new version
-curl -fsSL https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/lugondev/claude-seo/main/install.sh | bash
 ```
 
 ## Troubleshooting

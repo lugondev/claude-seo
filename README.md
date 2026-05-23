@@ -6,10 +6,10 @@ SEO analysis plugin for Claude Code. 25 sub-skills (21 core + 1 orchestrator + 1
 
 ![SEO Command Demo](screenshots/seo-command-demo.gif)
 
-[![CI](https://github.com/AgriciDaniel/claude-seo/actions/workflows/ci.yml/badge.svg)](https://github.com/AgriciDaniel/claude-seo/actions/workflows/ci.yml)
+[![CI](https://github.com/lugondev/claude-seo/actions/workflows/ci.yml/badge.svg)](https://github.com/lugondev/claude-seo/actions/workflows/ci.yml)
 [![Claude Code Skill](https://img.shields.io/badge/Claude%20Code-Skill-blue)](https://claude.ai/claude-code)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Version](https://img.shields.io/github/v/release/AgriciDaniel/claude-seo)](https://github.com/AgriciDaniel/claude-seo/releases)
+[![Version](https://img.shields.io/github/v/release/lugondev/claude-seo)](https://github.com/lugondev/claude-seo/releases)
 
 > Using Codex instead of Claude Code? Use [Codex SEO](https://github.com/AgriciDaniel/codex-seo), the Codex-first port of this project with Codex skills, TOML agents, plugin packaging, deterministic runners, and the same SEO workflow surface.
 
@@ -33,20 +33,10 @@ SEO analysis plugin for Claude Code. 25 sub-skills (21 core + 1 orchestrator + 1
 
 ## Installation
 
-### Plugin Install (Claude Code 1.0.33+)
-
-```bash
-# Add marketplace (one-time)
-/plugin marketplace add AgriciDaniel/claude-seo
-
-# Install plugin
-/plugin install claude-seo@agricidaniel-seo
-```
-
 ### Manual Install (Unix/macOS/Linux)
 
 ```bash
-git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git
+git clone --depth 1 https://github.com/lugondev/claude-seo.git
 bash claude-seo/install.sh
 ```
 
@@ -54,7 +44,7 @@ bash claude-seo/install.sh
 <summary>One-liner (curl, review then run)</summary>
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/install.sh > install.sh
+curl -fsSL https://raw.githubusercontent.com/lugondev/claude-seo/main/install.sh > install.sh
 cat install.sh        # review
 bash install.sh       # run when satisfied
 rm install.sh
@@ -65,7 +55,7 @@ rm install.sh
 ### Windows (PowerShell)
 
 ```powershell
-git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git
+git clone --depth 1 https://github.com/lugondev/claude-seo.git
 powershell -ExecutionPolicy Bypass -File claude-seo\install.ps1
 ```
 
@@ -251,7 +241,7 @@ Sites that render content client-side without server-side rendering will produce
 
 If your target site is an SPA without SSR (typical patterns: Vite/CRA React without prerender, client-only Vue/Angular, frameworks where the initial HTML response is largely an empty shell), use a tool that performs browser-rendered fetching for the audit. The `seo-visual` subagent does use Playwright when available and can verify that visible content matches what the raw-HTML subagents see; expect divergence on SPA targets.
 
-Tracked as the v2.0 epic in [#11](https://github.com/AgriciDaniel/claude-seo/issues/11).
+Tracked as the v2.0 epic in [#11](https://github.com/lugondev/claude-seo/issues/11).
 
 ## Requirements
 
@@ -263,7 +253,7 @@ Tracked as the v2.0 epic in [#11](https://github.com/AgriciDaniel/claude-seo/iss
 ## Uninstall
 
 ```bash
-git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git
+git clone --depth 1 https://github.com/lugondev/claude-seo.git
 bash claude-seo/uninstall.sh
 ```
 
@@ -271,7 +261,7 @@ bash claude-seo/uninstall.sh
 <summary>One-liner (curl)</summary>
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/AgriciDaniel/claude-seo/main/uninstall.sh | bash
+curl -fsSL https://raw.githubusercontent.com/lugondev/claude-seo/main/uninstall.sh | bash
 ```
 
 </details>
@@ -343,7 +333,7 @@ Claude SEO is part of a family of Claude Code skills that work together:
 
 | Skill | What it does | How it connects |
 |-------|-------------|-----------------|
-| [Claude SEO](https://github.com/AgriciDaniel/claude-seo) | SEO analysis, audits, schema, GEO | Core. Analyzes sites and generates action plans. |
+| [Claude SEO](https://github.com/lugondev/claude-seo) | SEO analysis, audits, schema, GEO | Core. Analyzes sites and generates action plans. |
 | [Claude Blog](https://github.com/AgriciDaniel/claude-blog) | Blog writing, optimization, scoring | Companion. Writes content optimized by SEO findings. |
 | [Claude Banana](https://github.com/AgriciDaniel/banana-claude) | AI image generation via Gemini | Shared. Generates images for SEO assets and blog posts. |
 | [Codex SEO](https://github.com/AgriciDaniel/codex-seo) | Codex-first SEO skill suite | Port. Same SEO system adapted for Codex skills, TOML agents, plugins, and deterministic runners. |
